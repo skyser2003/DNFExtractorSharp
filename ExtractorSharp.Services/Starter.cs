@@ -55,7 +55,7 @@ namespace ExtractorSharp.Services {
 
 
         private void InitLanguage() {
-            this.Language = Language.CreateCurrent(Resources.Chinese);
+            this.Language = Language.CreateCurrent(Resources.English);
         }
 
         private void InitStore() {

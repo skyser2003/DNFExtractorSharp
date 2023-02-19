@@ -196,12 +196,14 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\chinese.json" />
     <None Include="Resources\config.json" />
+    <None Include="Resources\english.json" />
     <None Include="Resources\pencil.png" />
     <None Include="Resources\rules.json" />
     <None Include="Resources\view.json" />
