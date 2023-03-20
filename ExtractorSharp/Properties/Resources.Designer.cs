@@ -208,6 +208,35 @@ namespace ExtractorSharp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;Name&quot;: &quot;English&quot;,
+        ///  &quot;LCID&quot;: 1033,
+        ///  &quot;Author&quot;: [
+        ///    &quot;Spacefish&quot;,
+        ///    &quot;5972&quot;,
+        ///    &quot;Kritsu&quot;
+        ///  ],
+        ///  &quot;Group&quot;: {
+        ///    &quot;Dictionary&quot;: {
+        ///      &quot;CheckAll&quot;: &quot;Check All&quot;,
+        ///      &quot;ReverseCheck&quot;: &quot;Reverse Checkmarks&quot;,
+        ///      &quot;DeleteCheck&quot;: &quot;Delete Checked&quot;,
+        ///      &quot;ClearList&quot;: &quot;Clear List&quot;,
+        ///      &quot;GamePath&quot;: &quot;Game Path&quot;,
+        ///      &quot;HandleObject&quot;: &quot;Processing Object &quot;,
+        ///      &quot;CheckImg&quot;: &quot;Selected IMG&quot;,
+        ///      &quot;AllImg&quot;: &quot;All IMG&quot;,
+        ///      &quot;CheckImage&quot;: &quot;Selected Image&quot;,
+        ///      &quot;AllImage&quot;: &quot;All Images&quot;,
+        ///       [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap exit {

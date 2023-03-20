@@ -402,6 +402,7 @@
     <None Include="Kritsu.snk" />
     <None Include="README.md" />
     <None Include="Resources\chinese.json" />
+    <None Include="Resources\english.json" />
     <None Include="Resources\queues.json" />
     <None Include="Resources\view.json" />
   </ItemGroup>

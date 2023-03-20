@@ -264,9 +264,9 @@ namespace ExtractorSharp {
         ///     加载语言
         /// </summary>
         private static void LoadLanguage() {
-            var chinese = Language.CreateFromJson(Resources.Chinese);
+            var english = Language.CreateFromJson(Resources.English);
             Language.List = new List<Language>();
-            Language.List.Add(chinese);
+            Language.List.Add(english);
             var path = $"{Config["RootPath"]}\\lan\\";
             Language.CreateFromDir(path);
             if (Config["LCID"].Integer == -1) {
