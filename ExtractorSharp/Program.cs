@@ -275,7 +275,7 @@ namespace ExtractorSharp {
             }
             Language.LocalLcid = Config["LCID"].Integer;
         }
-
+         
         private static void LoadConfig() {
             Config = new JsonConfig();
             Config.LoadConfig(Resources.Config);
@@ -289,10 +289,12 @@ namespace ExtractorSharp {
         private static void LoadRegistry() {
             try {
                 if (string.Empty.Equals(Config["GamePath"].Value) || !Directory.Exists(Config["GamePath"].Value)) {
-                    var path = Registry.CurrentUser
-                        .OpenSubKey("software\\tencent\\dnf", RegistryKeyPermissionCheck.Default,
-                            RegistryRights.ReadKey).GetValue("InstallPath").ToString();
-                    Config["GamePath"] = new ConfigValue(path);
+                    var pathKey = Registry.CurrentUser.OpenSubKey("software\\tencent\\dnf", RegistryKeyPermissionCheck.Default, RegistryRights.ReadKey);
+                    var pathReg = pathKey?.GetValue("InstallPath");
+
+                    if (pathReg != null) {
+                        Config["GamePath"] = new ConfigValue(pathReg.ToString());
+                    }
                 }
                 Config["ResourcePath"] = new ConfigValue($"{Config["GamePath"]}\\ImagePacks2");
                 Config.Save();
