@@ -1,7 +1,6 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
-using ExtractorSharp.Core.Lib;
 
 namespace ExtractorSharp.Component {
     public partial class ColorList : ListView {
@@ -12,9 +11,11 @@ namespace ExtractorSharp.Component {
         public Color[] Colors {
             get => _colors;
             set {
-                if (_colors.Compare(value)) {
+                // TODO: was _colors.Compare(value), check if the codes are equivalent
+                if (_colors.SequenceEqual(value)) {
                     return;
                 }
+
                 _colors = value;
                 SmallImageList.Images.Clear();
                 Items.Clear();

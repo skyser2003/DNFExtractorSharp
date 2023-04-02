@@ -1,23 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.57.0.0\build\CefSharp.WinForms.props')" />
   <Import Project="..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37D3351F-80F8-4905-A06F-65C430EC5EE2}</ProjectGuid>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExtractorSharp</RootNamespace>
-    <AssemblyName>ExtractorSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
     <SonarQubeExclude>True</SonarQubeExclude>
     <SonarQubeTestProject />
     <PublishUrl>publish\</PublishUrl>
@@ -35,30 +22,18 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
-    <Prefer32Bit>true</Prefer32Bit>
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -66,9 +41,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>logo.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Kritsu.snk</AssemblyOriginatorKeyFile>
@@ -85,387 +57,61 @@
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
-  <PropertyGroup />
-  <PropertyGroup />
-  <PropertyGroup />
-  <PropertyGroup />
-  <PropertyGroup />
-  <PropertyGroup />
-  <PropertyGroup />
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Command\DrawCommand\MoveToolsDraw.cs" />
-    <Compile Include="Command\FileCommand\ExchangeFile.cs" />
-    <Compile Include="Command\FileCommand\RecoverFile.cs" />
-    <Compile Include="Command\FileCommand\ReplaceFileFromList.cs" />
-    <Compile Include="Command\FileCommand\SaveFile.cs" />
-    <Compile Include="Command\ImageCommand\DyeImage.cs" />
-    <Compile Include="Command\ImageCommand\PasteSingleImage.cs" />
-    <Compile Include="Command\ImageCommand\SaveGif.cs" />
-    <Compile Include="Command\LayerCommand\AddCompareLayer.cs" />
-    <Compile Include="Command\LayerCommand\AddLayer.cs" />
-    <Compile Include="Command\LayerCommand\DeleteLayer.cs" />
-    <Compile Include="Command\LayerCommand\MoveLayer.cs" />
-    <Compile Include="Command\PaletteCommand\ChangeColor.cs" />
-    <Compile Include="Command\DrawCommand\EraserDraw.cs" />
-    <Compile Include="Command\FileCommand\MoveFile.cs" />
-    <Compile Include="Command\ImageCommand\ChangeSize.cs" />
-    <Compile Include="Command\ImageCommand\CutImage.cs" />
-    <Compile Include="Command\ImageCommand\LinearDodge.cs" />
-    <Compile Include="Command\DrawCommand\PencilDraw.cs" />
-    <Compile Include="Command\ImageCommand\MoveImage.cs" />
-    <Compile Include="Command\ImageCommand\PasteImage.cs" />
-    <Compile Include="Command\FileCommand\CutFile.cs" />
-    <Compile Include="Command\FileCommand\MixFile.cs" />
-    <Compile Include="Command\FileCommand\PasteFile.cs" />
-    <Compile Include="Command\FileCommand\RepairFile.cs" />
-    <Compile Include="Command\FileCommand\SplitFile.cs" />
-    <Compile Include="Command\LayerCommand\RenameLayer.cs" />
-    <Compile Include="Command\MergeCommand\MoveMerge.cs" />
-    <Compile Include="Command\MergeCommand\RunMerge.cs" />
-    <Compile Include="Command\PaletteCommand\DeleteColor.cs" />
-    <Compile Include="Composition\IGuid.cs" />
-    <Compile Include="Composition\IMetadata.cs" />
-    <Compile Include="Composition\Metadata.cs" />
-    <Compile Include="Composition\Plugin.cs" />
-    <Compile Include="Config\JsonConfig.cs" />
-    <Compile Include="Core\CommandParser.cs" />
-    <Compile Include="Draw\Paint\CompareLayer.cs" />
-    <Compile Include="Effect\DyeImageEffect.cs" />
-    <Compile Include="Effect\LinearDodgeEffect.cs" />
-    <Compile Include="Effect\RealPosistionEffect.cs" />
-    <Compile Include="Effect\TrimImageEffect.cs" />
-    <Compile Include="Core\Clipboarder.cs" />
-    <Compile Include="Core\Sorter\DefaultSorter.cs" />
-    <Compile Include="Exceptions\FileSupportException.cs" />
-    <Compile Include="Execute\SortExecute.cs" />
-    <Compile Include="Execute\SortIndexOfExecute.cs" />
-    <Compile Include="Model\Result.cs" />
-    <Compile Include="Model\VersionInfo.cs" />
-    <Compile Include="Draw\Brush\Eraser.cs" />
-    <Compile Include="Draw\Brush\Straw.cs" />
-    <Compile Include="Draw\Paint\Border.cs" />
-    <Compile Include="Draw\Paint\Grid.cs" />
-    <Compile Include="Draw\Paint\Ruler.cs" />
-    <Compile Include="EventArguments\ColorEventArgs.cs" />
-    <Compile Include="EventArguments\DrawEventArgs.cs" />
-    <Compile Include="Core\QueueChangeMode.cs" />
-    <Compile Include="EventArguments\ActionEventArgs.cs" />
-    <Compile Include="EventArguments\CommandEventArgs.cs" />
-    <Compile Include="Core\Controller.cs" />
-    <Compile Include="Core\Drawer.cs" />
-    <Compile Include="EventArguments\FileEventArgs.cs" />
-    <Compile Include="EventArguments\MergeQueueEventArgs.cs" />
-    <Compile Include="Core\Merger.cs" />
-    <Compile Include="Core\Viewer.cs" />
-    <Compile Include="Draw\Brush\MoveTool.cs" />
-    <Compile Include="Draw\Brush\Pencil.cs" />
-    <Compile Include="Command\ImageCommand\ChangePosition.cs" />
-    <Compile Include="Command\ImageCommand\UnCanvasImage.cs" />
-    <Compile Include="EventArguments\LayerEventArgs.cs" />
-    <Compile Include="Exceptions\CommandException.cs" />
-    <Compile Include="Exceptions\ConfigException.cs" />
-    <Compile Include="Exceptions\PluginException.cs" />
-    <Compile Include="Exceptions\UpdateException.cs" />
-    <Compile Include="MainForm.MainConnector.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Command\ImageCommand\CanvasImage.cs" />
-    <Compile Include="Command\ImageCommand\SaveImage.cs" />
-    <Compile Include="Command\FileCommand\SortFile.cs" />
-    <Compile Include="Command\MergeCommand\AddMerge.cs" />
-    <Compile Include="Command\ImageCommand\DeleteImage.cs" />
-    <Compile Include="Command\ImageCommand\HideImage.cs" />
-    <Compile Include="Command\ImageCommand\LinkImage.cs" />
-    <Compile Include="Command\ImageCommand\NewImage.cs" />
-    <Compile Include="Command\ImageCommand\ReplaceImage.cs" />
-    <Compile Include="Command\FileCommand\AddFile.cs" />
-    <Compile Include="Command\FileCommand\DeleteFile.cs" />
-    <Compile Include="Command\FileCommand\HideFile.cs" />
-    <Compile Include="Command\FileCommand\NewFile.cs" />
-    <Compile Include="Command\FileCommand\RenameFile.cs" />
-    <Compile Include="Command\FileCommand\ReplaceFile.cs" />
-    <Compile Include="Command\MergeCommand\ClearMerge.cs" />
-    <Compile Include="Command\MergeCommand\RemoveMerge.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Support\AudioSupport.cs" />
-    <Compile Include="Support\GifSupport.cs" />
-    <Compile Include="Support\ImgSupport.cs" />
-    <Compile Include="Support\NpkSupport.cs" />
-    <Compile Include="View\Dialog\AboutDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\AboutDialog.designer.cs">
-      <DependentUpon>AboutDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dialog\BugDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\BugDialog.Designer.cs">
-      <DependentUpon>BugDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dialog\ChangeSizeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\ChangeSizeDialog.Designer.cs">
-      <DependentUpon>ChangeSizeDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dialog\ConvertDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\ConvertDialog.Designer.cs">
-      <DependentUpon>ConvertDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dialog\SettingDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\SettingDialog.Designer.cs">
-      <DependentUpon>SettingDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pane\TexturePage.cs">
+    <Compile Update="View\Pane\TexturePage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Pane\TexturePage.Designer.cs">
-      <DependentUpon>TexturePage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\MovePane.cs">
+    <Compile Update="View\SettingPane\MovePane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\MovePane.Designer.cs">
-      <DependentUpon>MovePane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\AnimationPane.cs">
+    <Compile Update="View\SettingPane\AnimationPane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\AnimationPane.Designer.cs">
-      <DependentUpon>AnimationPane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\GifPane.cs">
+    <Compile Update="View\SettingPane\GifPane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\GifPane.Designer.cs">
-      <DependentUpon>GifPane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\GridPane.cs">
+    <Compile Update="View\SettingPane\GridPane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\GridPane.Designer.cs">
-      <DependentUpon>GridPane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\LanguagePane.cs">
+    <Compile Update="View\SettingPane\LanguagePane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\LanguagePane.Designer.cs">
-      <DependentUpon>LanguagePane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\MarketplacePane.cs">
+    <Compile Update="View\SettingPane\MarketplacePane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\MarketplacePane.Designer.cs">
-      <DependentUpon>MarketplacePane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\InstalledPluginPane.cs">
+    <Compile Update="View\SettingPane\InstalledPluginPane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\InstalledPluginPane.Designer.cs">
-      <DependentUpon>InstalledPluginPane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\RulerPane.cs">
+    <Compile Update="View\SettingPane\RulerPane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\RulerPane.Designer.cs">
-      <DependentUpon>RulerPane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\SaveImagePane.cs">
+    <Compile Update="View\SettingPane\SaveImagePane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\SaveImagePane.Designer.cs">
-      <DependentUpon>SaveImagePane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pane\ActionPage.cs">
+    <Compile Update="View\Pane\ActionPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Pane\ActionPage.Designer.cs">
-      <DependentUpon>ActionPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pane\PalattePage.cs">
+    <Compile Update="View\Pane\PalattePage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Pane\PalattePage.Designer.cs">
-      <DependentUpon>PalattePage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pane\HistoryPage.Designer.cs" />
-    <Compile Include="View\Pane\HistoryPage.cs">
+    <Compile Update="View\Pane\HistoryPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Pane\AudioPlayer.cs">
+    <Compile Update="View\Pane\AudioPlayer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Pane\AudioPlayer.Designer.cs">
-      <DependentUpon>AudioPlayer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dialog\ReplaceImageDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\ReplaceImageDialog.Designer.cs">
-      <DependentUpon>ReplaceImageDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pane\DropPanel.cs">
+    <Compile Update="View\Pane\DropPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Pane\DropPanel.Designer.cs">
-      <DependentUpon>DropPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dialog\NewImageDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\NewImageDialog.Designer.cs">
-      <DependentUpon>NewImageDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dialog\SaveImageDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\SaveImageDialog.Designer.cs">
-      <DependentUpon>SaveImageDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Draw\Paint\Layer.cs" />
-    <Compile Include="Core\Hoster.cs" />
-    <Compile Include="View\Dialog\ChangePositionDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\ChangePositionDialog.designer.cs">
-      <DependentUpon>ChangePositionDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dialog\NewImgDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\NewImgDialog.designer.cs">
-      <DependentUpon>NewImgDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Dialog\MergeDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dialog\MergeDialog.designer.cs">
-      <DependentUpon>MergeDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\GerneralPane.cs">
+    <Compile Update="View\SettingPane\GerneralPane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\GerneralPane.Designer.cs">
-      <DependentUpon>GerneralPane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\SettingPane\Theme\BackgroundPane.cs">
+    <Compile Update="View\SettingPane\Theme\BackgroundPane.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\SettingPane\Theme\BackgroundPane.Designer.cs">
-      <DependentUpon>BackgroundPane.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Kritsu.snk" />
-    <None Include="README.md" />
-    <None Include="Resources\chinese.json" />
-    <None Include="Resources\english.json" />
-    <None Include="Resources\queues.json" />
-    <None Include="Resources\view.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="View\Dialog\AboutDialog.resx">
-      <DependentUpon>AboutDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\BugDialog.resx">
-      <DependentUpon>BugDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\ChangePositionDialog.resx">
-      <DependentUpon>ChangePositionDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\ChangeSizeDialog.resx">
-      <DependentUpon>ChangeSizeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\ConvertDialog.resx">
-      <DependentUpon>ConvertDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\SettingDialog.resx">
-      <DependentUpon>SettingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Pane\AudioPlayer.resx">
-      <DependentUpon>AudioPlayer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\ReplaceImageDialog.resx">
-      <DependentUpon>ReplaceImageDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Pane\DropPanel.resx">
-      <DependentUpon>DropPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\NewImageDialog.resx">
-      <DependentUpon>NewImageDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\SaveImageDialog.resx">
-      <DependentUpon>SaveImageDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\NewImgDialog.resx">
-      <DependentUpon>NewImgDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\MergeDialog.resx">
-      <DependentUpon>MergeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SettingPane\GridPane.resx">
-      <DependentUpon>GridPane.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SettingPane\LanguagePane.resx">
-      <DependentUpon>LanguagePane.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SettingPane\InstalledPluginPane.resx">
-      <DependentUpon>InstalledPluginPane.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SettingPane\SaveImagePane.resx">
-      <DependentUpon>SaveImagePane.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -481,48 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
-    <None Include="Resources\help.png" />
-    <None Include="Resources\last.png" />
-    <None Include="Resources\next.png" />
-    <None Include="Resources\add.png" />
-    <None Include="Resources\minus.png" />
-    <None Include="Resources\change.png" />
-    <None Include="Resources\switch.png" />
-    <None Include="Resources\search.png" />
-    <None Include="Resources\grid.png" />
-    <None Include="Resources\ruler.png" />
-    <None Include="Resources\gif.png" />
-    <None Include="Resources\position.png" />
-    <None Include="Resources\edit.png" />
-    <None Include="Resources\link.png" />
-    <None Include="Resources\paste.png" />
-    <None Include="Resources\copy.png" />
-    <None Include="Resources\cut.png" />
-    <None Include="Resources\rename.png" />
-    <None Include="Resources\repair.png" />
-    <None Include="Resources\newFile.png" />
-    <None Include="Resources\replace.png" />
-    <None Include="Resources\about.png" />
-    <None Include="Resources\feedback.png" />
-    <None Include="Resources\setting.png" />
-    <None Include="Resources\sort.png" />
-    <None Include="Resources\classify.png" />
-    <None Include="Resources\play.png" />
-    <None Include="Resources\record.png" />
-    <None Include="Resources\delete.png" />
-    <None Include="Resources\pause.png" />
-    <None Include="Resources\exit.png" />
-    <None Include="Resources\addFile.png" />
-    <None Include="Resources\open.png" />
-    <None Include="Resources\saveAs.png" />
-    <None Include="Resources\save.png" />
-    <None Include="Resources\undo.png" />
-    <None Include="Resources\redo.png" />
-    <None Include="Resources\pencil.png" />
-    <None Include="Resources\run.png" />
-    <None Include="Resources\config.json" />
-    <None Include="Resources\version.json" />
-    <None Include="Resources\button.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="stdole">
@@ -536,31 +140,33 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExtractorSharp.Component\ExtractorSharp.Component.csproj">
-      <Project>{DCE898EE-8FCB-45AA-9A53-BFEED8ED7257}</Project>
-      <Name>ExtractorSharp.Component</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExtractorSharp.Core\ExtractorSharp.Core.csproj">
-      <Project>{09014dd5-3314-437e-bb2e-6fbd0d1e7864}</Project>
-      <Name>ExtractorSharp.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExtractorSharp.Json\ExtractorSharp.Json.csproj">
-      <Project>{06D35140-706A-40CE-9373-6B948F092A30}</Project>
-      <Name>ExtractorSharp.Json</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\ExtractorSharp.Component\ExtractorSharp.Component.csproj" />
+    <ProjectReference Include="..\ExtractorSharp.Core\ExtractorSharp.Core.csproj" />
+    <ProjectReference Include="..\ExtractorSharp.Json\ExtractorSharp.Json.csproj" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.Management" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Command\ImageCommand\ChangeImageSize.cs" />
+    <Compile Remove="Command\RenameCommand.cs" />
+    <Compile Remove="Command\SpliceCommand\AddSplice.cs" />
+    <Compile Remove="Command\SpliceCommand\ClearSplice.cs" />
+    <Compile Remove="Command\SpliceCommand\RemoveSplice.cs" />
+    <Compile Remove="Command\SpliceCommand\SortSplice.cs" />
+    <Compile Remove="View\PropertiesDialog.cs" />
+    <Compile Remove="View\PropertiesDialog.Designer.cs" />
+    <Compile Remove="View\RenameDialog.cs" />
+    <Compile Remove="View\RenameDialog.Designer.cs" />
+    <EmbeddedResource Remove="View\RenameDialog.resx" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties Resources_4version_1json__JSONSchema="http://json.schemastore.org/appsettings" />
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

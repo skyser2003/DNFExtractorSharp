@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 using ExtractorSharp.Command;
 using ExtractorSharp.Component;
+using System.Windows.Forms;
 
 namespace ExtractorSharp.View.Pane {
     partial class PalettePage {
@@ -43,12 +43,12 @@ namespace ExtractorSharp.View.Pane {
             Text = Language["Palette"];
 
             ContextMenuStrip = new ContextMenuStrip();
-            menu = new ContextMenu();
-            list.ContextMenu = menu;
+            menu = new ContextMenuStrip();
+            list.ContextMenuStrip = menu;
 
-            changeColorItem = new MenuItem();
+            changeColorItem = new ToolStripMenuItem();
             changeColorItem.Text = Language["Change"];
-            changeToCurrentItem = new MenuItem();
+            changeToCurrentItem = new ToolStripMenuItem();
             changeToCurrentItem.Text = Language["ChangeToCurrentColor"];
 
 
@@ -57,8 +57,8 @@ namespace ExtractorSharp.View.Pane {
             deleteButton.UseVisualStyleBackColor = true;
             deleteButton.Image = Properties.Resources.delete;
             deleteButton.Size = new System.Drawing.Size(24, 24);
-            menu.MenuItems.Add(changeColorItem);
-            menu.MenuItems.Add(changeToCurrentItem);
+            menu.Items.Add(changeColorItem);
+            menu.Items.Add(changeToCurrentItem);
             //this.Controls.Add(deleteButton);
         }
 
@@ -66,9 +66,9 @@ namespace ExtractorSharp.View.Pane {
 
         private ColorList list;
         private ComboBox combo;
-        private MenuItem changeColorItem;
-        private MenuItem changeToCurrentItem;
-        private ContextMenu menu;
+        private ToolStripMenuItem changeColorItem;
+        private ToolStripMenuItem changeToCurrentItem;
+        private ContextMenuStrip menu;
         private Button deleteButton;
         #endregion
     }
