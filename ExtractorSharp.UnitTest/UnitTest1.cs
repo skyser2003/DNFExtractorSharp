@@ -25,16 +25,16 @@ namespace ExtractorSharp.UnitTest.Command
 
             Assert.AreEqual(commandParser.InvokeToken("1;"), "1");
             Assert.AreEqual(commandParser.InvokeToken("1|toInt;"), 1);
-            Assert.IsTrue(((commandParser.InvokeToken("1|toArray;") as string[]) ?? new string[]{}).SequenceEqual(new[] { "1" }));
-            Assert.IsTrue(((commandParser.InvokeToken("1|toArray|toInt;") as int[]) ?? new int[]{}).SequenceEqual(new[] { 1 }));
+            Assert.IsTrue(((commandParser.InvokeToken("1|toArray;") as string[]) ?? new string[] { }).SequenceEqual(new[] { "1" }));
+            Assert.IsTrue(((commandParser.InvokeToken("1|toArray|toInt;") as int[]) ?? new int[] { }).SequenceEqual(new[] { 1 }));
 
             Assert.IsTrue(((commandParser.InvokeToken("1,2,3|toArray;") as string[]) ?? new string[] { }).SequenceEqual(new[] { "1", "2", "3" }));
-            Assert.IsTrue(((commandParser.InvokeToken("1,2,3|toArray|toInt;") as int[]) ?? new int[]{}).SequenceEqual(new[] { 1, 2, 3 }));
+            Assert.IsTrue(((commandParser.InvokeToken("1,2,3|toArray|toInt;") as int[]) ?? new int[] { }).SequenceEqual(new[] { 1, 2, 3 }));
             commandParser.InvokeToken("1,2,3|toArray|toInt|asVar|a;");
-            Assert.IsTrue((commandParser.InvokeToken("|useVar|a;") as int[] ?? new int[]{}).SequenceEqual(new[] { 1, 2, 3 }));
+            Assert.IsTrue((commandParser.InvokeToken("|useVar|a;") as int[] ?? new int[] { }).SequenceEqual(new[] { 1, 2, 3 }));
 
             commandParser.InvokeToken("1,2,3|toArray|asVar|a;");
-            Assert.IsTrue((commandParser.InvokeToken("|useVar|a|toInt;") as int[] ?? new int[]{}).SequenceEqual(new[] { 1, 2, 3 }));
+            Assert.IsTrue((commandParser.InvokeToken("|useVar|a|toInt;") as int[] ?? new int[] { }).SequenceEqual(new[] { 1, 2, 3 }));
 
             Assert.AreEqual(commandParser.InvokeToken("1|toInt|addOne|addOne|addOne|asVar|b;"), 4);
             Assert.AreEqual(commandParser.InvokeToken("|useVar|b|addOne;"), 5);
@@ -56,12 +56,12 @@ namespace ExtractorSharp.UnitTest.Command
 
             Assert.AreEqual(commandParser.InvokeToken("|useVar|b.ToString()|Concat|aaaa;"), "6aaaa");
             Assert.IsTrue((
-                    commandParser.InvokeToken("|useVar|a|toInt|Concat|4|toInt|addOne|addOne;") as int[] ?? new int[]{}
+                    commandParser.InvokeToken("|useVar|a|toInt|Concat|4|toInt|addOne|addOne;") as int[] ?? new int[] { }
                 ).SequenceEqual(
                     new[] { 1, 2, 3, 6 }
                 ));
             Assert.IsFalse((
-                commandParser.InvokeToken("4|toInt|addOne|addOne|Concat|useVar|a|toInt;") as int[] ?? new int[]{}
+                commandParser.InvokeToken("4|toInt|addOne|addOne|Concat|useVar|a|toInt;") as int[] ?? new int[] { }
             ).SequenceEqual(
                 new[] { 6, 1, 2, 3 }
             )); // concat 左侧的值不应该因右侧的值改变类型.
@@ -93,10 +93,10 @@ namespace ExtractorSharp.UnitTest.Command
             ));
             Assert.AreEqual(
                 string.Join(
-                "\n", 
+                "\n",
                 "1", "toList", "forEach", "i", "    2", "    toInt", "    ;",
                 "    message", "    i", "    ;", "", ""
-                ), 
+                ),
                 ast
             );
 
