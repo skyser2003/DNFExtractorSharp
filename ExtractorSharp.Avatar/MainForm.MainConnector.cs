@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 using ExtractorSharp.Core.Coder;
 using ExtractorSharp.Core.Composition;
 using ExtractorSharp.Core.Config;
@@ -14,15 +15,59 @@ using ExtractorSharp.Core.Model;
 using ExtractorSharp.Exceptions;
 using ExtractorSharp.Json;
 using ExtractorSharp.Support;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ExtractorSharp {
     partial class MainForm {
         private class MainConnector : IConnector {
             private List<string> _recent = new List<string>();
 
-           
+            private List<string> jobs = new List<string>();
+            private List<string> parts = new List<string>();
 
-            public MainConnector() {
+            private List<string> filenames = new List<string>();
+
+
+            public MainConnector()
+            {
+                jobs.AddRange(new[] {
+                    "priest_",
+                    "priest_at",
+                    "mage_",
+                    "mage_at",
+                    "swordman_",
+                    "swordman_at",
+                    "gunner_",
+                    "gunner_at",
+                    "fighter_",
+                    "fighter_at",
+                    "thief_",
+                    "knight_",
+                    "gunblader_",
+                    "demoniclancer_",
+                    "archer_"
+                });
+
+                parts.AddRange(new[] {
+                    "coat",
+                    "neck",
+                    "shoes",
+                    "pants",
+                    "hair",
+                    "face",
+                    "skin",
+                    "cap",
+                    "belt"
+                });
+
+                foreach (var job in jobs)
+                {
+                    foreach (var part in parts)
+                    {
+                        filenames.Add($"sprite_character_{job}equipment_avatar_{part}.NPK");
+                    }
+                }
+
                 SaveChanged += (o, e) => OnSaveChanged();
                 FileSupports.Add(new ImgSupport());
                 FileSupports.Add(new NpkSupport());
@@ -159,18 +204,35 @@ namespace ExtractorSharp {
 
             public List<Album> LoadFile(params string[] args) {
                 var list = new List<Album>();
+
                 for (var i = 0; i < args.Length; i++) {
                     var support = FileSupports.Find(e => args[i].ToLower().EndsWith(e.Extension));
                     var arr = new List<Album>();
+
                     if (Directory.Exists(args[i])) {
                         arr = LoadFile(Directory.GetFiles(args[i]));
                     } else if (support != null) {
+                        var matches = false;
+
+                        foreach (var filename in filenames) { 
+                            if (args[i].Contains(filename)) {
+                                matches = true;
+                                break;
+                            }
+                        }
+
+                        if (!matches) {
+                            continue;
+                        }
+
                         arr = support.Decode(args[i]);
                     } else {
                         throw new FileSupportException(Language["FileSupportException"]);
                     }
+
                     list.AddRange(arr);
                 }
+
                 return list;
             }
 
