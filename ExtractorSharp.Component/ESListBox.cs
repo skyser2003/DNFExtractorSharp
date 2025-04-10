@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ExtractorSharp.Component.EventArguments;
 using ExtractorSharp.Core.Model;
+using System.ComponentModel;
 
 namespace ExtractorSharp.Component {
     public partial class ESListBox<T> : CheckedListBox {
@@ -31,12 +32,16 @@ namespace ExtractorSharp.Component {
             DragDrop += ListDragDrop;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Language Language { set; get; } = Language.Default;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public T HoverItem { private set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int HoverIndex { private set; get; }
 
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanClear {
             set {
                 _canClear = value;
@@ -49,6 +54,7 @@ namespace ExtractorSharp.Component {
             get => _canClear;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanDelete {
             set {
                 _canDelete = value;
@@ -81,6 +87,7 @@ namespace ExtractorSharp.Component {
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public new T SelectedItem {
             get => (T) base.SelectedItem;
             set => base.SelectedItem = value;

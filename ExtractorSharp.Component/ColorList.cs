@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace ExtractorSharp.Component {
     public partial class ColorList : ListView {
@@ -8,6 +9,7 @@ namespace ExtractorSharp.Component {
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Color[] Colors {
             get => _colors;
             set {

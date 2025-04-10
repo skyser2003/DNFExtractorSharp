@@ -6,6 +6,7 @@ using ExtractorSharp.Core.Draw;
 using ExtractorSharp.Core.Draw.Paint;
 using ExtractorSharp.Core.Lib;
 using ExtractorSharp.Core.Model;
+using System.ComponentModel;
 
 namespace ExtractorSharp.Component {
     public partial class ESCavasBox : PictureBox {
@@ -17,7 +18,9 @@ namespace ExtractorSharp.Component {
         }
 
         private IConnector Connector { get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Language Language { set; get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IConfig Config { set; get; }
 
         /// <summary>

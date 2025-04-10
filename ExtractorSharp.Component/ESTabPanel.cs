@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using ExtractorSharp.Core.Model;
+using System.ComponentModel;
 
 namespace ExtractorSharp.Component {
     public partial class ESTabPanel : TabControl {
@@ -8,6 +9,7 @@ namespace ExtractorSharp.Component {
             InitializeComponent();
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Language Language { set; get; } = Language.Default;
 
         public void AddPage(string name, Control control) {

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using ExtractorSharp.Core.Composition;
 using ExtractorSharp.Core.Lib;
 using ExtractorSharp.Core.Model;
+using System.ComponentModel;
 
 namespace ExtractorSharp.Component {
     public partial class ESTextDialog : ESDialog {
@@ -15,10 +16,12 @@ namespace ExtractorSharp.Component {
             yesButton.Click += Submit;
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool CanEmpty { set; get; }
 
         public new Language Language => Language.Default;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string InputText {
             get => textBox.Text;
             set {

@@ -24,6 +24,7 @@ using ExtractorSharp.Draw.Paint;
 using ExtractorSharp.Effect;
 using ExtractorSharp.EventArguments;
 using ExtractorSharp.View.Pane;
+using System.ComponentModel;
 
 namespace ExtractorSharp {
     public partial class MainForm : ESForm {
@@ -71,6 +72,7 @@ namespace ExtractorSharp {
         private Drawer Drawer { get; }
         private Controller Controller { get; }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string Path {
             set => pathBox.Text = value;
             get => pathBox.Text;
